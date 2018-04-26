@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>CPU Scheduler Simulator</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="jquery-3.1.1.min.js"></script>
+    <script src="dataProcessos.js"></script>
+    <script src="fifo.js"></script>
+    <script src="prio.js"></script>
+    <script src="sjf.js"></script>
+    <script src="rr.js"></script>
+    <script src="srtn.js"></script>
+    <script src="prio-preem.js"></script>
+    <script src="chart.js"></script>
+
+
+    <h1> CPU Scheduler Simulator </h1>
+    </br>
+    <div class="row">
+        <div class="col-xs-2">
+            <select id='selectTipo' multiple="multiple">
+                    <option value="fifo" selected>FIFO</option>
+                    <option value="sjf">SJF</option>
+                    <option value="rr">RoundRobin</option>
+                    <option value="prio">Prioridade</option>
+                    <option value="srtn">SRTN</option>
+                    <option value="priopreem">Prioridade Preemptivo</option>
+                </select>
+        </div>
+        <div class="col-xs-2 col-sm-1">
+            <label> Overhead </label>
+            <input id='overhead' class="form-control" name="overhead" type="number" value="0">
+        </div>
+    </div>
+    </br>
+    <div class="row">
+        <div id='TextBoxesGroup'>
+            <div id="ProcessoDiv1 col-sm-1">
+                <label>Processo A: </label>
+                </br>
+                <div class="input-group">
+                    <div class="col-xs-2">
+                        <label>Tempo de Chegada </label>
+                        <input id='tChegada1' class="form-control" name="tChegada1" type="number">
+                    </div>
+                    <div class="col-xs-2">
+                        <label>Tempo de Duracao </label>
+                        <input id='tDuracao1' class="form-control" name="tDuracao1" type="number">
+                    </div>
+                    <div class="col-xs-2">
+                        <label>Prioridade</label>
+                        <input id="priori1" class=" form-control " name="priori1 " type="number">
+                    </div>
+                </div>
+            </div>
+            </br>
+        </div>
+    </div>
+    </br>
+    <div class="col-xs-3">
+        <input type='button' class="btn btn-primary btn-block " value='Adicionar processo' id='addButton'>
+    </div>
+    <div class="col-xs-3">
+        <input type='button' class="btn btn-danger btn-block " value='Remover processo' id='removeButton'>
+    </div>
+    </br>
+    </br>
+    </br>
+    <div class="col-xs-4">
+        <input type='button' class="btn btn-success btn-block " value='Simular' id='simularButton'>
+    </div>
+
+    </br>
+    </br>
+
+    <body>
+        <div id="graficoProcessos" style="height: 500px; "></div>
+    </body>
+
+</head>
+
+</html>
